@@ -155,10 +155,10 @@ local library = {
 	windows = {},
     pointers = {},
     settings = {
-        guiname = "Hexagon",
-		title = "Hexagon [discontinued???]",
+        guiname = "Meowtap",
+		title = "Meowtap",
 		logo = "rbxassetid://4350178803", -- "http://www.roblox.com/asset/?id=6597976562",
-        footer = " Imagine pressing Copy Discord Invite.",
+        footer = " Imagine not liking cats.",
         modal = true,
         font = Enum.Font.SourceSans,
         textsize = 16,
