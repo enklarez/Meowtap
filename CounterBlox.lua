@@ -1,3 +1,78 @@
+-- Instances:
+
+local Watermark = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local TextLabel_5 = Instance.new("TextLabel")
+
+--Properties:
+
+Watermark.Name = "Watermark"
+Watermark.Parent = game.StarterGui.ScreenGui
+Watermark.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Watermark.BorderColor3 = Color3.fromRGB(200, 20, 20)
+Watermark.Position = UDim2.new(0.592906773, 0, 0.19298245, 0)
+Watermark.Size = UDim2.new(0, 283, 0, 22)
+
+TextLabel.Parent = Watermark
+TextLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(-0.217909813, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 184, 0, 22)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Meowtap"
+TextLabel.TextColor3 = Color3.fromRGB(235, 235, 235)
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = Watermark
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(-0.087763086, 0, 0, 0)
+TextLabel_2.Size = UDim2.new(0, 184, 0, 22)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "I"
+TextLabel_2.TextColor3 = Color3.fromRGB(235, 235, 235)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = Watermark
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.28739062, 0, 0, 0)
+TextLabel_3.Size = UDim2.new(0, 107, 0, 22)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = ""
+TextLabel_3.TextColor3 = Color3.fromRGB(235, 235, 235)
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+TextLabel_4.Parent = Watermark
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.Position = UDim2.new(0.392706275, 0, 0, 0)
+TextLabel_4.Size = UDim2.new(0, 184, 0, 22)
+TextLabel_4.Font = Enum.Font.SourceSans
+TextLabel_4.Text = "I"
+TextLabel_4.TextColor3 = Color3.fromRGB(235, 235, 235)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+TextLabel_5.Parent = Watermark
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.Position = UDim2.new(0.489437729, 0, 0, 0)
+TextLabel_5.Size = UDim2.new(0, 184, 0, 22)
+TextLabel_5.Font = Enum.Font.SourceSans
+TextLabel_5.Text = "Fps:"
+TextLabel_5.TextColor3 = Color3.fromRGB(235, 235, 235)
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+
 local Hint = Instance.new("Hint", game.CoreGui)
 Hint.Text = "Meowtap | Waiting for the game to load..."
 
@@ -1177,24 +1252,11 @@ MiscellaneousTabCategoryMain:AddToggle("Show Spectators", false, "MiscellaneousT
 end)
 
 MiscellaneousTabCategoryMain:AddToggle("Watermark", false, "MiscellaneousTabCategoryMainWatermark", function(val)
-	ShowSpectators = val
-
-local function CreateInstance(cls,props)
-	local inst = Instance.new(cls)
-	for i,v in pairs(props) do
-		inst[i] = v
+	if val == true then
+		Watermark.Visible = true
+	elseif val == false then
+		 Watermark.Visible = false
 	end
-	return inst
-	end
-		
-	local ScreenGui = CreateInstance('ScreenGui',{DisplayOrder=0,Enabled=true,ResetOnSpawn=true,Name='ScreenGui', Parent=game.CoreGui})
-	local Frame = CreateInstance('Frame',{Style=Enum.FrameStyle.Custom,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.117647, 0.117647, 0.117647),BackgroundTransparency=0,BorderColor3=Color3.new(0.784314, 0.0784314, 0.0784314),BorderSizePixel=1,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0.592906773, 0, 0.19298245, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 283, 0, 22),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name = 'Frame',Parent = ScreenGui})
-	local TextLabel = CreateInstance('TextLabel',{Font=Enum.Font.SourceSans,FontSize=Enum.FontSize.Size14,Text='Meowtap',TextColor3=Color3.new(0.921569, 0.921569, 0.921569),TextScaled=false,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.117647, 0.117647, 0.117647),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=1,ClipsDescendants=false,Draggable=false,Position=UDim2.new(-0.217909813, 0, 0, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 184, 0, 22),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name='TextLabel',Parent = Frame})
-	local TextLabel = CreateInstance('TextLabel',{Font=Enum.Font.SourceSans,FontSize=Enum.FontSize.Size14,Text='|',TextColor3=Color3.new(0.921569, 0.921569, 0.921569),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.117647, 0.117647, 0.117647),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=1,ClipsDescendants=false,Draggable=false,Position=UDim2.new(-0.087763086, 0, 0, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 184, 0, 22),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name='TextLabel',Parent = Frame})
-	local TextLabel = CreateInstance('TextLabel',{Font=Enum.Font.SourceSans,FontSize=Enum.FontSize.Size14,Text= game.Players.LocalPlayer.Name,TextColor3=Color3.new(0.921569, 0.921569, 0.921569),TextScaled=false,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.117647, 0.117647, 0.117647),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=1,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0.28739062, 0, 0, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 107, 0, 22),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name='TextLabel',Parent = Frame})
-	local TextLabel = CreateInstance('TextLabel',{Font=Enum.Font.SourceSans,FontSize=Enum.FontSize.Size14,Text='|',TextColor3=Color3.new(0.921569, 0.921569, 0.921569),TextScaled=true,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.117647, 0.117647, 0.117647),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=1,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0.392706275, 0, 0, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 184, 0, 22),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name='TextLabel',Parent = Frame})
-	local TextLabel = CreateInstance('TextLabel',{Font=Enum.Font.SourceSans,FontSize=Enum.FontSize.Size14,Text='Fps:',TextColor3=Color3.new(0.921569, 0.921569, 0.921569),TextScaled=false,TextSize=14,TextStrokeColor3=Color3.new(0, 0, 0),TextStrokeTransparency=1,TextTransparency=0,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.117647, 0.117647, 0.117647),BackgroundTransparency=1,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=1,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0.489437729, 0, 0, 0),Rotation=0,Selectable=false,Size=UDim2.new(0, 184, 0, 22),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name='TextLabel',Parent = Frame})
-
 end)
 
 	script.Parent.Text = game.Players.LocalPlayer.Name
@@ -1649,30 +1711,6 @@ SettingsTabCategoryConfigs:AddButton("Set as default", function()
 		writefile("Meowtap/autoload.txt", "")
 	end
 end)
-
-local SettingsTabCategoryCredits = SettingsTab:AddCategory("Credits", 2)
-
-SettingsTabCategoryCredits:AddLabel("Script - Pawel12d#0272")
-
-SettingsTabCategoryCredits:AddLabel("ESP - Modified Kiriot ESP")
-
-SettingsTabCategoryCredits:AddLabel("UI Library - Modified Phantom Ware")
-
-SettingsTabCategoryCredits:AddLabel("")
-
-SettingsTabCategoryCredits:AddLabel("Special Thanks To:")
-
-SettingsTabCategoryCredits:AddLabel("ny#2817")
-
-SettingsTabCategoryCredits:AddLabel("neeX#3712")
-
-SettingsTabCategoryCredits:AddLabel("MrPolaczekPL#1884")
-
-SettingsTabCategoryCredits:AddLabel("")
-
-SettingsTabCategoryCredits:AddLabel("Don't steal credits or burn in hell.")
-
-
 
 -- Other
 game.Players.LocalPlayer.Additionals.TotalDamage.Changed:Connect(function(val)
