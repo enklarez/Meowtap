@@ -1962,8 +1962,8 @@ end)
 --]]
 local function GetConfigs()
 	cfgs = {}
-	for i,v in pairs(syn_io_listdir("hexhub")) do
-		if v:sub(-10) == ".hexhubcfg" then
+	for i,v in pairs(syn_io_listdir("meowhub")) do
+		if v:sub(-10) == ".meowhubcfg" then
 			table.insert(cfgs, string.split(v, ".")[1]:sub(8))
 		end
 	end

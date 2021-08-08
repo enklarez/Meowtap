@@ -1,26 +1,36 @@
+
+-- Gui to Lua
+-- Version: 3.2
+
 -- Instances:
 
+local ScreenGui = Instance.new("ScreenGui")
 local Watermark = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
 local TextLabel_3 = Instance.new("TextLabel")
 local TextLabel_4 = Instance.new("TextLabel")
 local TextLabel_5 = Instance.new("TextLabel")
+local Frame = Instance.new("Frame")
 
 --Properties:
 
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 Watermark.Name = "Watermark"
-Watermark.Parent = game.StarterGui.ScreenGui
+Watermark.Parent = ScreenGui
 Watermark.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 Watermark.BorderColor3 = Color3.fromRGB(200, 20, 20)
-Watermark.Position = UDim2.new(0.592906773, 0, 0.19298245, 0)
-Watermark.Size = UDim2.new(0, 283, 0, 22)
+Watermark.BorderSizePixel = 0
+Watermark.Position = UDim2.new(0.763300002, 0, 0.0116959065, 0)
+Watermark.Size = UDim2.new(0, 225, 0, 27)
 
 TextLabel.Parent = Watermark
 TextLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(-0.217909813, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 184, 0, 22)
+TextLabel.Position = UDim2.new(-0.262354344, 0, 0.259259254, 0)
+TextLabel.Size = UDim2.new(0, 184, 0, 21)
 TextLabel.Font = Enum.Font.SourceSans
 TextLabel.Text = "Meowtap"
 TextLabel.TextColor3 = Color3.fromRGB(235, 235, 235)
@@ -30,7 +40,7 @@ TextLabel.TextWrapped = true
 TextLabel_2.Parent = Watermark
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(-0.087763086, 0, 0, 0)
+TextLabel_2.Position = UDim2.new(-0.118874192, 0, 0.222222179, 0)
 TextLabel_2.Size = UDim2.new(0, 184, 0, 22)
 TextLabel_2.Font = Enum.Font.SourceSans
 TextLabel_2.Text = "I"
@@ -42,8 +52,8 @@ TextLabel_2.TextWrapped = true
 TextLabel_3.Parent = Watermark
 TextLabel_3.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 TextLabel_3.BackgroundTransparency = 1.000
-TextLabel_3.Position = UDim2.new(0.28739062, 0, 0, 0)
-TextLabel_3.Size = UDim2.new(0, 107, 0, 22)
+TextLabel_3.Position = UDim2.new(0.3677257, 0, 0.259259254, 0)
+TextLabel_3.Size = UDim2.new(0, 74, 0, 21)
 TextLabel_3.Font = Enum.Font.SourceSans
 TextLabel_3.Text = ""
 TextLabel_3.TextColor3 = Color3.fromRGB(235, 235, 235)
@@ -53,7 +63,7 @@ TextLabel_3.TextWrapped = true
 TextLabel_4.Parent = Watermark
 TextLabel_4.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 TextLabel_4.BackgroundTransparency = 1.000
-TextLabel_4.Position = UDim2.new(0.392706275, 0, 0, 0)
+TextLabel_4.Position = UDim2.new(0.328662097, 0, 0.222222507, 0)
 TextLabel_4.Size = UDim2.new(0, 184, 0, 22)
 TextLabel_4.Font = Enum.Font.SourceSans
 TextLabel_4.Text = "I"
@@ -65,7 +75,7 @@ TextLabel_4.TextWrapped = true
 TextLabel_5.Parent = Watermark
 TextLabel_5.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 TextLabel_5.BackgroundTransparency = 1.000
-TextLabel_5.Position = UDim2.new(0.489437729, 0, 0, 0)
+TextLabel_5.Position = UDim2.new(0.469948053, 0, 0.222222179, 0)
 TextLabel_5.Size = UDim2.new(0, 184, 0, 22)
 TextLabel_5.Font = Enum.Font.SourceSans
 TextLabel_5.Text = "Fps:"
@@ -73,13 +83,55 @@ TextLabel_5.TextColor3 = Color3.fromRGB(235, 235, 235)
 TextLabel_5.TextSize = 14.000
 TextLabel_5.TextWrapped = true
 
+Frame.Parent = Watermark
+Frame.BackgroundColor3 = Color3.fromRGB(200, 20, 20)
+Frame.BorderSizePixel = 0
+Frame.Size = UDim2.new(0, 225, 0, 7)
+
+-- Scripts:
+
+local function DJPOJDQ_fake_script() -- Watermark.LocalScript 
+	local script = Instance.new('LocalScript', Watermark)
+
+	script.Parent.Selectable = true
+	script.Parent.Active = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(DJPOJDQ_fake_script)()
+local function SCKW_fake_script() -- TextLabel_3.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_3)
+
+	script.Parent.Text = game.Players.LocalPlayer.Name
+end
+coroutine.wrap(SCKW_fake_script)()
+local function PPXUJ_fake_script() -- TextLabel_5.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_5)
+
+	local fps = 0
+	
+	local rs = game:GetService("RunService")
+	
+	rs.RenderStepped:Connect(function()
+		fps = fps + 1
+	end)
+	
+	while true do
+		script.Parent.Text = "FPS: "..fps
+		fps = 0
+		wait(1)
+	end
+end
+coroutine.wrap(PPXUJ_fake_script)()
+
+
+
 local Hint = Instance.new("Hint", game.CoreGui)
-Hint.Text = "Meowtap | Waiting for the game to load..."
+Hint.Text = "Hexagon | Waiting for the game to load..."
 
 repeat wait() until game:IsLoaded()
 repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("GUI")
 
-Hint.Text = "Meowtap | Setting up environment..."
+Hint.Text = "Hexagon | Setting up environment..."
 
 -- Services
 local UserInputService = game:GetService("UserInputService")
@@ -141,9 +193,9 @@ Hint.Text = "Meowtap | Loading..."
 
 -- Viewmodels fix
 for i,v in pairs(game.ReplicatedStorage.Viewmodels:GetChildren()) do
-    if v:FindFirstChild("HumanoidRootPart") and v.HumanoidRootPart.Transparency ~= 1 then
-        v.HumanoidRootPart.Transparency = 1
-    end
+	if v:FindFirstChild("HumanoidRootPart") and v.HumanoidRootPart.Transparency ~= 1 then
+		v.HumanoidRootPart.Transparency = 1
+	end
 end
 
 game.ReplicatedStorage.Viewmodels["v_oldM4A1-S"].Silencer.Transparency = 1
@@ -180,7 +232,7 @@ local Sounds = {
 	["Becky"] = workspace.Sounds.Becky,
 	["Beep"] = workspace.Sounds.Beep
 }
-	
+
 local FOVCircle = Drawing.new("Circle")
 local Cases = {}; for i,v in pairs(game.ReplicatedStorage.Cases:GetChildren()) do table.insert(Cases, v.Name) end
 
@@ -189,8 +241,8 @@ local Inventories = loadstring("return "..readfile("Meowtap/inventories.txt"))()
 local Skyboxes = loadstring("return "..readfile("Meowtap/skyboxes.txt"))()
 
 
-
 -- Main
+
 local SilentLegitbot = {target = nil}
 local SilentRagebot = {target = nil, cooldown = false}
 local LocalPlayer = game.Players.LocalPlayer
@@ -269,57 +321,57 @@ local function CharacterAdded()
 end
 
 local function PlayerAdded()
-	
+
 end
 
 local function PlantC4()
 	pcall(function()
-	if IsAlive(LocalPlayer) and workspace.Map.Gamemode.Value == "defusal" and workspace.Status.Preparation.Value == false and not planting then 
-		planting = true
-		local pos = LocalPlayer.Character.HumanoidRootPart.CFrame 
-		workspace.CurrentCamera.CameraType = "Fixed"
-		LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.SpawnPoints.C4Plant.CFrame
-		wait(0.2)
-		game.ReplicatedStorage.Events.PlantC4:FireServer((pos + Vector3.new(0, -2.75, 0)) * CFrame.Angles(math.rad(90), 0, math.rad(180)), GetSite())
-		wait(0.2)
-		LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-		game.Workspace.CurrentCamera.CameraType = "Custom"
-		planting = false
-	end
+		if IsAlive(LocalPlayer) and workspace.Map.Gamemode.Value == "defusal" and workspace.Status.Preparation.Value == false and not planting then 
+			planting = true
+			local pos = LocalPlayer.Character.HumanoidRootPart.CFrame 
+			workspace.CurrentCamera.CameraType = "Fixed"
+			LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.SpawnPoints.C4Plant.CFrame
+			wait(0.2)
+			game.ReplicatedStorage.Events.PlantC4:FireServer((pos + Vector3.new(0, -2.75, 0)) * CFrame.Angles(math.rad(90), 0, math.rad(180)), GetSite())
+			wait(0.2)
+			LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+			LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+			game.Workspace.CurrentCamera.CameraType = "Custom"
+			planting = false
+		end
 	end)
 end
 
 local function DefuseC4()
 	pcall(function()
-	if IsAlive(LocalPlayer) and workspace.Map.Gamemode.Value == "defusal" and not defusing and workspace:FindFirstChild("C4") then 
-		defusing = true
-		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-		local pos = LocalPlayer.Character.HumanoidRootPart.CFrame 
-		workspace.CurrentCamera.CameraType = "Fixed"
-		LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.C4.Handle.CFrame + Vector3.new(0, 2, 0)
-		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-		wait(0.1)
-		LocalPlayer.Backpack.PressDefuse:FireServer(workspace.C4)
-		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-		wait(0.25)
-		if IsAlive(LocalPlayer) and workspace:FindFirstChild("C4") and workspace.C4:FindFirstChild("Defusing") and workspace.C4.Defusing.Value == LocalPlayer then
-			LocalPlayer.Backpack.Defuse:FireServer(workspace.C4)
+		if IsAlive(LocalPlayer) and workspace.Map.Gamemode.Value == "defusal" and not defusing and workspace:FindFirstChild("C4") then 
+			defusing = true
+			LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+			local pos = LocalPlayer.Character.HumanoidRootPart.CFrame 
+			workspace.CurrentCamera.CameraType = "Fixed"
+			LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.C4.Handle.CFrame + Vector3.new(0, 2, 0)
+			LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+			wait(0.1)
+			LocalPlayer.Backpack.PressDefuse:FireServer(workspace.C4)
+			LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+			wait(0.25)
+			if IsAlive(LocalPlayer) and workspace:FindFirstChild("C4") and workspace.C4:FindFirstChild("Defusing") and workspace.C4.Defusing.Value == LocalPlayer then
+				LocalPlayer.Backpack.Defuse:FireServer(workspace.C4)
+			end
+			LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+			wait(0.2)
+			LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+			LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+			LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+			game.Workspace.CurrentCamera.CameraType = "Custom"
+			defusing = false
 		end
-		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-		wait(0.2)
-		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-		LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-		LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-		game.Workspace.CurrentCamera.CameraType = "Custom"
-		defusing = false
-	end
 	end)
 end
 
 function GetSpectators()
 	local CurrentSpectators = {}
-	
+
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do 
 		if v ~= game:GetService("Players").LocalPlayer then
 			if not v.Character and v:FindFirstChild("CameraCF") and (v.CameraCF.Value.Position - workspace.CurrentCamera.CFrame.p).Magnitude < 10 then 
@@ -327,33 +379,33 @@ function GetSpectators()
 			end
 		end
 	end
-	
+
 	return CurrentSpectators
 end
 
 local function GetLegitbotTarget()
 	local target,oldval = nil,math.huge
-	
+
 	for i,v in pairs(game.Players:GetPlayers()) do
 		if IsAlive(v) and v ~= LocalPlayer and not v.Character:FindFirstChild("ForceField") then
 			if library.pointers.AimbotTabCategoryLegitbotTeamCheck.value == false or GetTeam(v) ~= GetTeam(LocalPlayer) then
 				if library.pointers.AimbotTabCategoryLegitbotVisibilityCheck.value == false or IsVisible(v.Character.Head.Position, {v.Character, LocalPlayer.Character, MeowtapFolder, workspace.CurrentCamera}) == true then
 					local Vector, onScreen = workspace.CurrentCamera:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
 					local FOV = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(Vector.X, Vector.Y)).magnitude
-					
+
 					if FOV < library.pointers.AimbotTabCategoryLegitbotFOV.value or library.pointers.AimbotTabCategoryLegitbotFOV.value == 0 then
 						if math.floor((LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude) < library.pointers.AimbotTabCategoryLegitbotDistance.value or library.pointers.AimbotTabCategoryLegitbotDistance.value == 0 then
 							if library.pointers.AimbotTabCategoryLegitbotTargetPriority.value == "FOV" then
 								local Vector, onScreen = workspace.CurrentCamera:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
 								local FOV = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(Vector.X, Vector.Y)).magnitude
-									
+
 								if FOV < oldval then
 									target = v
 									oldval = FOV
 								end
 							elseif library.pointers.AimbotTabCategoryLegitbotTargetPriority.value == "Distance" then
 								local Distance = math.floor((v.Character.HumanoidRootPart.Position - LocalPlayer.Character.HumanoidRootPart.Position).magnitude)
-								
+
 								if Distance < oldval then
 									target = v
 									oldval = Distance
@@ -365,33 +417,33 @@ local function GetLegitbotTarget()
 			end
 		end
 	end
-	
+
 	if target ~= nil then
 		return target
 	end
-	
+
 	return nil
 end
 
 local function GetLegitbotHitbox(plr)
 	local target,oldval = nil,math.huge
-	
+
 	for i,v in pairs(library.pointers.AimbotTabCategoryLegitbotHitbox.value) do
 		for i2,v2 in pairs(Hitboxes[v]) do
 			targetpart = plr.Character:FindFirstChild(v2)
-			
+
 			if targetpart ~= nil then
 				if library.pointers.AimbotTabCategoryLegitbotHitboxPriority.value == "FOV" then
 					local Vector, onScreen = workspace.CurrentCamera:WorldToScreenPoint(targetpart.Position)
 					local FOV = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(Vector.X, Vector.Y)).magnitude
-					
+
 					if FOV < oldval then
 						target = targetpart
 						oldval = FOV
 					end
 				elseif library.pointers.AimbotTabCategoryLegitbotHitboxPriority.value == "Distance" then
 					local Distance = math.floor((targetpart.Position - LocalPlayer.Character.HumanoidRootPart.Position).magnitude)
-					
+
 					if Distance < oldval then
 						target = targetpart
 						oldval = Distance
@@ -400,17 +452,17 @@ local function GetLegitbotHitbox(plr)
 			end
 		end
 	end
-	
+
 	if target ~= nil then
 		return target
 	end
-	
+
 	return nil
 end
 
 local function TableToNames(tbl, alt)
 	local otp = {}
-	
+
 	if alt then
 		for i,v in pairs(tbl) do
 			table.insert(otp, v.weaponname)
@@ -420,22 +472,22 @@ local function TableToNames(tbl, alt)
 			table.insert(otp, i)
 		end
 	end
-	
+
 	return otp
 end
 
 local function AddCustomSkin(tbl) 
 	if tbl and tbl.weaponname and tbl.skinname and tbl.model then
 		local isGlove = false
-		
+
 		if table.find({"Strapped Glove", "Handwraps", "Sports Glove", "Fingerless Glove"}, tbl.weaponname) then
 			isGlove = true
 		end
-		
+
 		newfolder = Instance.new("Folder")
 		newfolder.Name = tbl.skinname
 		newfolder.Parent = (isGlove == true and game.ReplicatedStorage.Gloves) or (game.ReplicatedStorage.Skins[tbl.weaponname])
-			
+
 		if tbl.skinimage ~= nil then
 			newvalue1 = Instance.new("StringValue")
 			newvalue1.Name = tbl.skinname
@@ -448,7 +500,7 @@ local function AddCustomSkin(tbl)
 			newvalue2.Name = "Quality"
 			newvalue2.Value = tbl.skinrarity
 			newvalue2.Parent = (isGlove == false and newvalue1) or nil
-			
+
 			newvalue3 = Instance.new("StringValue")
 			newvalue3.Name = tostring(tbl.weaponname.."_"..tbl.skinname)
 			newvalue3.Value = tbl.skinrarity
@@ -461,7 +513,7 @@ local function AddCustomSkin(tbl)
 			newtextures.MeshId = game.ReplicatedStorage.Gloves.Models[tbl.weaponname].RGlove.Mesh.MeshId
 			newtextures.TextureId = tbl.model.Handle
 			newtextures.Parent = newfolder
-			
+
 			newtype = Instance.new("StringValue")
 			newtype.Name = "Type"
 			newtype.Value = tbl.weaponname
@@ -478,7 +530,7 @@ local function AddCustomSkin(tbl)
 						end
 					end
 				end
-				
+
 				newvalue = Instance.new("StringValue")
 				newvalue.Name = i
 				newvalue.Value = v
@@ -486,7 +538,7 @@ local function AddCustomSkin(tbl)
 			end
 		end
 		table.insert(nocw_s, {tostring(tbl.weaponname.."_"..tbl.skinname)})
-			
+
 		print("Custom skin: "..tostring(tbl.weaponname.."_"..tbl.skinname).." successfully injected!")
 	end
 end
@@ -496,11 +548,11 @@ local function AddCustomModel(tbl)
 		if game.ReplicatedStorage.Viewmodels:FindFirstChild("v_"..tbl.modelname) then
 			game.ReplicatedStorage.Viewmodels["v_"..tbl.modelname]:Destroy()
 		end
-		
+
 		newmodel = tbl.model
 		newmodel.Name = "v_"..tbl.modelname
 		newmodel.Parent = game.ReplicatedStorage.Viewmodels
-		
+
 		table.insert(nocw_m, {tostring(tbl.modelname)})
 	end
 end
@@ -516,15 +568,15 @@ AimbotTabCategoryLegitbot:AddToggle("Enabled", false, "AimbotTabCategoryLegitbot
 			if library.base.Window.Visible == false and IsAlive(LocalPlayer) then
 				if library.pointers.AimbotTabCategoryLegitbotKeybind.value == nil or (library.pointers.AimbotTabCategoryLegitbotKeybind.value.EnumType == Enum.KeyCode and UserInputService:IsKeyDown(library.pointers.AimbotTabCategoryLegitbotKeybind.value)) or (library.pointers.AimbotTabCategoryLegitbotKeybind.value.EnumType == Enum.UserInputType and UserInputService:IsMouseButtonPressed(library.pointers.AimbotTabCategoryLegitbotKeybind.value)) then
 					plr = GetLegitbotTarget()
-					
+
 					if plr ~= nil then
 						hitboxpart = GetLegitbotHitbox(plr)
-						
+
 						if hitboxpart ~= nil then
 							local Vector, onScreen = workspace.CurrentCamera:WorldToScreenPoint(hitboxpart.Position)
 							local PositionX = (Mouse.X-Vector.X)/library.pointers.AimbotTabCategoryLegitbotSmoothness.value + 1
 							local PositionY = (Mouse.Y-Vector.Y)/library.pointers.AimbotTabCategoryLegitbotSmoothness.value + 1
-							
+
 							if library.pointers.AimbotTabCategoryLegitbotSilent.value == true then
 								SilentLegitbot.target = hitboxpart
 								SilentLegitbot.aiming = true
@@ -552,8 +604,6 @@ end)
 
 AimbotTabCategoryLegitbot:AddToggle("Silent", false, "AimbotTabCategoryLegitbotSilent")
 
-AimbotTabCategoryLegitbot:AddToggle("Triggerbot", false, "AimbotTabCategoryLegitbotTriggerbot")
-
 AimbotTabCategoryLegitbot:AddToggle("Team Check", false, "AimbotTabCategoryLegitbotTeamCheck")
 
 AimbotTabCategoryLegitbot:AddToggle("Visibility Check", false, "AimbotTabCategoryLegitbotVisibilityCheck")
@@ -580,7 +630,7 @@ local AimbotTabCategoryAntiAimbot = AimbotTab:AddCategory("Anti Aimbot", 2)
 
 AimbotTabCategoryAntiAimbot:AddToggle("Enabled", false, "AimbotTabCategoryAntiAimbotEnabled", function(val)
 	AntiAimbot = val
-	
+
 	while AntiAimbot do
 		if IsAlive(LocalPlayer) and (library.pointers.AimbotTabCategoryAntiAimbotDisableWhileClimbing.value == false or cbClient.climbing == false) then
 			function RotatePlayer(pos)
@@ -593,7 +643,7 @@ AimbotTabCategoryAntiAimbot:AddToggle("Enabled", false, "AimbotTabCategoryAntiAi
 				wait()
 				Gyro:Destroy()
 			end
-			
+
 			if library.pointers.AimbotTabCategoryAntiAimbotRemoveHeadHitbox.value == true then
 				if game.Players.LocalPlayer.Character:FindFirstChild("HeadHB") then
 					game.Players.LocalPlayer.Character.HeadHB:Destroy()
@@ -605,13 +655,13 @@ AimbotTabCategoryAntiAimbot:AddToggle("Enabled", false, "AimbotTabCategoryAntiAi
 					game.Players.LocalPlayer.Character.Head.Transparency = 0
 				end
 			end
-			
+
 			if table.find({"Backward", "Left", "Right"}, library.pointers.AimbotTabCategoryAntiAimbotYaw.value) then
 				game.Players.LocalPlayer.Character.Humanoid.AutoRotate = false
 				local Angle = (
 					library.pointers.AimbotTabCategoryAntiAimbotYaw.value == "Backward" and CFrame.new(-4, 0, 0) or
-					library.pointers.AimbotTabCategoryAntiAimbotYaw.value == "Left" and CFrame.new(-180, 0, 0) or
-					library.pointers.AimbotTabCategoryAntiAimbotYaw.value == "Right" and CFrame.new(180, 0, 0)
+						library.pointers.AimbotTabCategoryAntiAimbotYaw.value == "Left" and CFrame.new(-180, 0, 0) or
+						library.pointers.AimbotTabCategoryAntiAimbotYaw.value == "Right" and CFrame.new(180, 0, 0)
 				)
 				RotatePlayer(workspace.CurrentCamera.CFrame * Angle)
 			elseif library.pointers.AimbotTabCategoryAntiAimbotYaw.value == "Spin" then
@@ -624,7 +674,7 @@ AimbotTabCategoryAntiAimbot:AddToggle("Enabled", false, "AimbotTabCategoryAntiAi
 
 		wait(0.02)
 	end
-	
+
 	if IsAlive(LocalPlayer) then
 		game.Players.LocalPlayer.Character.Humanoid.AutoRotate = true
 	end
@@ -755,13 +805,13 @@ VisualsTabCategoryOthers:AddMultiDropdown("Remove Effects", {"Scope", "Flash", "
 		LocalPlayer.PlayerGui.GUI.Crosshairs.Frame3.Transparency = 0
 		LocalPlayer.PlayerGui.GUI.Crosshairs.Frame4.Transparency = 0
 	end
-	
+
 	if table.find(val, "Flash") then
 		LocalPlayer.PlayerGui.Blnd.Enabled = false
 	else
 		LocalPlayer.PlayerGui.Blnd.Enabled = true
 	end
-	
+
 	if table.find(val, "Smoke") then
 		for i,v in pairs(workspace.Ray_Ignore.Smokes:GetChildren()) do
 			if v.Name == "Smoke" then
@@ -769,7 +819,7 @@ VisualsTabCategoryOthers:AddMultiDropdown("Remove Effects", {"Scope", "Flash", "
 			end
 		end
 	end
-	
+
 	if table.find(val, "Bullet Holes") then
 		for i,v in pairs(workspace.Debris:GetChildren()) do
 			if v.Name == "Bullet" then
@@ -777,7 +827,7 @@ VisualsTabCategoryOthers:AddMultiDropdown("Remove Effects", {"Scope", "Flash", "
 			end
 		end
 	end
-	
+
 	if table.find(val, "Blood") then
 		for i,v in pairs(workspace.Debris:GetChildren()) do
 			if v.Name == "SurfaceGui" then
@@ -785,7 +835,7 @@ VisualsTabCategoryOthers:AddMultiDropdown("Remove Effects", {"Scope", "Flash", "
 			end
 		end
 	end
-	
+
 	if table.find(val, "Ragdolls") then
 		-- Ragdolls are currently disabled in the game
 	end
@@ -799,16 +849,16 @@ VisualsTabCategoryOthers:AddDropdown("Skybox", TableToNames(Skyboxes), "Default"
 	if game.Lighting:FindFirstChild("Meowtap_SKYBOX") then
 		game.Lighting:FindFirstChild("Meowtap_SKYBOX"):Destroy()
 	end
-	
+
 	if val ~= "Default" and rawget(Skyboxes, val) then
 		local NewSkybox = Instance.new("Sky", game.Lighting)
 		NewSkybox.Name = "Meowtap_SKYBOX"
-		
+
 		for i,v in pairs(rawget(Skyboxes, val)) do
 			NewSkybox[i] = v
 		end
 	end
-	
+
 	pcall(function()
 		library.pointers.VisualsTabCategoryOthersSkybox:Refresh(TableToNames(Skyboxes))
 	end)
@@ -934,7 +984,7 @@ VisualsTabCategoryViewmodel:AddSlider("Viewmodel Offset Z", {0, 360, 180, 1, "°
 VisualsTabCategoryViewmodel:AddSlider("Viewmodel Offset Roll", {0, 360, 180, 1, "°"}, "VisualsTabCategoryViewmodelOffsetRoll")
 
 VisualsTabCategoryViewmodel:AddButton("Reset", function()
-    library.pointers.VisualsTabCategoryViewmodelEnabled:Set(false)
+	library.pointers.VisualsTabCategoryViewmodelEnabled:Set(false)
 	library.pointers.VisualsTabCategoryViewmodelFOV:Set(80)
 	library.pointers.VisualsTabCategoryViewmodelOffsetX:Set(180)
 	library.pointers.VisualsTabCategoryViewmodelOffsetY:Set(180)
@@ -1011,56 +1061,56 @@ end)
 
 MiscellaneousTabCategoryMain:AddDropdown("Barriers", {"Normal", "Visible", "Remove"}, "-", "MiscellaneousTabCategoryMainBarriers", function(val)
 	pcall(function()
-	if val ~= "-" then
-		local Clips = workspace.Map.Clips; Clips.Name = "FAT"; Clips.Parent = nil
-		local Killers = workspace.Map.Killers; Killers.Name = "FAT"; Killers.Parent = nil
+		if val ~= "-" then
+			local Clips = workspace.Map.Clips; Clips.Name = "FAT"; Clips.Parent = nil
+			local Killers = workspace.Map.Killers; Killers.Name = "FAT"; Killers.Parent = nil
 
-		if val == "Normal" then	
-			for i,v in pairs(Clips:GetChildren()) do
-				if v:IsA("BasePart") then
-					v.Transparency = 1
-					v.CanCollide = true
+			if val == "Normal" then	
+				for i,v in pairs(Clips:GetChildren()) do
+					if v:IsA("BasePart") then
+						v.Transparency = 1
+						v.CanCollide = true
+					end
+				end
+				for i,v in pairs(Killers:GetChildren()) do
+					if v:IsA("BasePart") then
+						v.Transparency = 1
+						v.CanCollide = true
+					end
+				end
+			elseif val == "Visible" then
+				for i,v in pairs(Clips:GetChildren()) do
+					if v:IsA("BasePart") then
+						v.Transparency = 0.9
+						v.Material = "Neon"
+						v.Color = Color3.fromRGB(255, 0, 255)
+					end
+				end
+				for i,v in pairs(Killers:GetChildren()) do
+					if v:IsA("BasePart") then
+						v.Transparency = 0.9
+						v.Material = "Neon"
+						v.Color = Color3.fromRGB(255, 0, 0)
+					end
+				end
+			elseif val == "Remove" then
+				for i,v in pairs(Clips:GetChildren()) do
+					if v:IsA("BasePart") then
+						v:Remove()
+					end
+				end
+				for i,v in pairs(Killers:GetChildren()) do
+					if v:IsA("BasePart") then
+						v:Remove()
+					end
 				end
 			end
-			for i,v in pairs(Killers:GetChildren()) do
-				if v:IsA("BasePart") then
-					v.Transparency = 1
-					v.CanCollide = true
-				end
-			end
-		elseif val == "Visible" then
-			for i,v in pairs(Clips:GetChildren()) do
-				if v:IsA("BasePart") then
-					v.Transparency = 0.9
-					v.Material = "Neon"
-					v.Color = Color3.fromRGB(255, 0, 255)
-				end
-			end
-			for i,v in pairs(Killers:GetChildren()) do
-				if v:IsA("BasePart") then
-					v.Transparency = 0.9
-					v.Material = "Neon"
-					v.Color = Color3.fromRGB(255, 0, 0)
-				end
-			end
-		elseif val == "Remove" then
-			for i,v in pairs(Clips:GetChildren()) do
-				if v:IsA("BasePart") then
-					v:Remove()
-				end
-			end
-			for i,v in pairs(Killers:GetChildren()) do
-				if v:IsA("BasePart") then
-					v:Remove()
-				end
-			end
+
+			Killers.Name = "Killers"; Killers.Parent = workspace.Map
+			Clips.Name = "Clips"; Clips.Parent = workspace.Map
+
+			library.pointers.MiscellaneousTabCategoryMainBarriers:Set("-")
 		end
-
-		Killers.Name = "Killers"; Killers.Parent = workspace.Map
-		Clips.Name = "Clips"; Clips.Parent = workspace.Map
-		
-		library.pointers.MiscellaneousTabCategoryMainBarriers:Set("-")
-	end
 	end)
 end)
 
@@ -1099,15 +1149,15 @@ end)
 MiscellaneousTabCategoryMain:AddSlider("Open Case Amount", {1, 100, 1, 1, ""}, "MiscellaneousTabCategoryMainOpenCaseAmount")
 
 local a,b = pcall(function()
-	MiscellaneousTabCategoryMain:AddMultiDropdown("Custom Models", TableToNames(loadstring("return "..readfile("Meowtap/custom_models.txt"))(), true), {}, "MiscellaneousTabCategoryMainCustomModels", function(val)
+	MiscellaneousTabCategoryMain:AddMultiDropdown("Custom Models", TableToNames(loadstring("return "..readfile("hexagon/custom_models.txt"))(), true), {}, "MiscellaneousTabCategoryMainCustomModels", function(val)
 		if not ViewmodelsBackup then
 			ViewmodelsBackup = game.ReplicatedStorage.Viewmodels:Clone()
 		end
-		
+
 		game.ReplicatedStorage.Viewmodels:Destroy()
-		
+
 		ViewmodelsBackup:Clone().Parent = game.ReplicatedStorage
-		
+
 		for i,v in pairs(loadstring("return "..readfile("Meowtap/custom_models.txt"))()) do
 			if table.find(val, v.weaponname) then
 				AddCustomModel(v)
@@ -1124,7 +1174,7 @@ end
 MiscellaneousTabCategoryMain:AddDropdown("Inventory Changer", TableToNames(Inventories), "-", "MiscellaneousTabCategoryMainInventoryChanger", function(val)
 	local InventoryLoadout = LocalPlayer.PlayerGui.GUI["Inventory&Loadout"]
 	local InventoriesData = loadstring("return "..readfile("Meowtap/inventories.txt"))()
-	
+
 	if typeof(InventoriesData[val]) == "table" then
 		cbClient.CurrentInventory = InventoriesData[val]
 	elseif typeof(InventoriesData[val]) == "string" then
@@ -1138,7 +1188,7 @@ MiscellaneousTabCategoryMain:AddDropdown("Inventory Changer", TableToNames(Inven
 			for i,v in pairs(game.ReplicatedStorage.Skins:GetChildren()) do
 				if v:IsA("Folder") and game.ReplicatedStorage.Weapons:FindFirstChild(v.Name) then
 					table.insert(AllSkinsTable, {v.Name.."_Stock"})
-					
+
 					for i2,v2 in pairs(v:GetChildren()) do
 						if v2.Name ~= "Stock" then
 							table.insert(AllSkinsTable, {v.Name.."_"..v2.Name})
@@ -1146,7 +1196,7 @@ MiscellaneousTabCategoryMain:AddDropdown("Inventory Changer", TableToNames(Inven
 					end
 				end
 			end
-			
+
 			for i,v in pairs(game.ReplicatedStorage.Gloves:GetChildren()) do
 				if v:IsA("Folder") and v.Name ~= "Models" then
 					for i2,v2 in pairs(v:GetChildren()) do
@@ -1154,16 +1204,16 @@ MiscellaneousTabCategoryMain:AddDropdown("Inventory Changer", TableToNames(Inven
 					end
 				end
 			end
-			
+
 			cbClient.CurrentInventory = AllSkinsTable
 		end
 	end
-	
+
 	if InventoryLoadout.Visible == true then
 		InventoryLoadout.Visible = false
 		InventoryLoadout.Visible = true
 	end
-	
+
 	pcall(function()
 		library.pointers.MiscellaneousTabCategoryMainInventoryChanger:Refresh(TableToNames(Inventories))
 	end)
@@ -1191,26 +1241,26 @@ MiscellaneousTabCategoryMain:AddButton("Crash Server", function()
 end)
 
 MiscellaneousTabCategoryMain:AddButton("Inf HP", function() pcall(function()
-	game.ReplicatedStorage.Events.FallDamage:FireServer(0/0)
-	LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
-		LocalPlayer.Character.Humanoid.Health = 100
-	end)
-end) end)
+		game.ReplicatedStorage.Events.FallDamage:FireServer(0/0)
+		LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+			LocalPlayer.Character.Humanoid.Health = 100
+		end)
+	end) end)
 
 MiscellaneousTabCategoryMain:AddButton("FE God", function() pcall(function()
-	LocalPlayer.Character.Humanoid.Parent = nil
-	Instance.new("Humanoid", LocalPlayer.Character)
-end) end)
+		LocalPlayer.Character.Humanoid.Parent = nil
+		Instance.new("Humanoid", LocalPlayer.Character)
+	end) end)
 
 MiscellaneousTabCategoryMain:AddButton("Invisibility [dont defuse]", function() pcall(function()
-	local oldpos = LocalPlayer.Character.HumanoidRootPart.CFrame
-	LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999,9999,9999)
-	local NewRoot = LocalPlayer.Character.LowerTorso.Root:Clone()
-	LocalPlayer.Character.LowerTorso.Root:Destroy()
-	NewRoot.Parent = LocalPlayer.Character.LowerTorso
-	wait()
-	LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-end) end)
+		local oldpos = LocalPlayer.Character.HumanoidRootPart.CFrame
+		LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999,9999,9999)
+		local NewRoot = LocalPlayer.Character.LowerTorso.Root:Clone()
+		LocalPlayer.Character.LowerTorso.Root:Destroy()
+		NewRoot.Parent = LocalPlayer.Character.LowerTorso
+		wait()
+		LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+	end) end)
 
 MiscellaneousTabCategoryMain:AddButton("Vote Kick Yourself", function()
 	game.ReplicatedStorage.Events.Vote:FireServer(game.Players.LocalPlayer.Name)
@@ -1228,16 +1278,16 @@ MiscellaneousTabCategoryMain:AddToggle("Unlock Shop While Alive", false, "Miscel
 
 MiscellaneousTabCategoryMain:AddToggle("Show Spectators", false, "MiscellaneousTabCategoryMainShowSpectators", function(val)
 	ShowSpectators = val
-	
+
 	library.base.Spectators.Visible = val
-	
+
 	while ShowSpectators do
 		for i,v in pairs(library.base.Spectators.SpectatorsFrame:GetChildren()) do
 			if v:IsA("TextLabel") then
 				v:Destroy()
 			end
 		end
-		
+
 		for i,v in pairs(GetSpectators()) do
 			local SpectatorLabel = Instance.new("TextLabel")
 			SpectatorLabel.BackgroundTransparency = 1
@@ -1246,20 +1296,18 @@ MiscellaneousTabCategoryMain:AddToggle("Show Spectators", false, "MiscellaneousT
 			SpectatorLabel.TextColor3 = Color3.new(1, 1, 1)
 			SpectatorLabel.Parent = library.base.Spectators.SpectatorsFrame
 		end
-		
+
 		wait(0.25)
 	end
 end)
 
-MiscellaneousTabCategoryMain:AddToggle("Watermark", false, "MiscellaneousTabCategoryMainWatermark", function(val)
+MiscellaneousTabCategoryMain:AddToggle("Watermark", false, "Watermark", function(val)
 	if val == true then
 		Watermark.Visible = true
 	elseif val == false then
-		 Watermark.Visible = false
+		Watermark.Visible = false
 	end
 end)
-
-	script.Parent.Text = game.Players.LocalPlayer.Name
 MiscellaneousTabCategoryMain:AddToggle("Inf Jump", false, "MiscellaneousTabCategoryMainInfJump", function(val)
 	if val == true then
 		JumpHook = game:GetService("UserInputService").JumpRequest:connect(function()
@@ -1374,7 +1422,7 @@ MiscellaneousTabCategoryNoclip:AddToggle("Enabled", false, "MiscellaneousTabCate
 					pcall(function()
 						local speed = library.pointers.MiscellaneousTabCategoryNoclipSpeed.value
 						local velocity = Vector3.new(0, 1, 0)
-						
+
 						if UserInputService:IsKeyDown(Enum.KeyCode.W) then
 							velocity = velocity + (workspace.CurrentCamera.CoordinateFrame.lookVector * speed)
 						end
@@ -1387,14 +1435,14 @@ MiscellaneousTabCategoryNoclip:AddToggle("Enabled", false, "MiscellaneousTabCate
 						if UserInputService:IsKeyDown(Enum.KeyCode.D) then
 							velocity = velocity + (workspace.CurrentCamera.CoordinateFrame.rightVector * speed)
 						end
-						
+
 						LocalPlayer.Character.HumanoidRootPart.Velocity = velocity
 						LocalPlayer.Character.Humanoid.PlatformStand = true
 					end)
 				end)
 			end
 		end)
-		
+
 		NoclipLoop = game:GetService("RunService").Stepped:Connect(function()
 			for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 				if v:IsA("BasePart") and v.CanCollide == true then
@@ -1490,12 +1538,12 @@ MiscellaneousTabCategoryBacktrack:AddToggle("Enabled", false, "MiscellaneousTabC
 						NewBacktrackPart.Size = v.Character.Head.Size
 						NewBacktrackPart.CFrame = v.Character.Head.CFrame
 						NewBacktrackPart.Parent = MeowtapFolder
-						
+
 						local BacktrackTag = Instance.new("ObjectValue")
 						BacktrackTag.Parent = NewBacktrackPart
 						BacktrackTag.Name = "PlayerName"
 						BacktrackTag.Value = v
-						
+
 						spawn(function()
 							wait(library.pointers.MiscellaneousTabCategoryBacktrackTime.value/1000)
 							NewBacktrackPart:Destroy()
@@ -1520,13 +1568,13 @@ local MiscellaneousTabCategoryGrenade = MiscellaneousTab:AddCategory("Grenade", 
 MiscellaneousTabCategoryGrenade:AddKeybind("Keybind", nil, "MiscellaneousTabCategoryGrenadeKeybind", function(val)
 	if val == true and UserInputService:GetFocusedTextBox() == nil then
 		game:GetService("ReplicatedStorage").Events.ThrowGrenade:FireServer(
-			game.ReplicatedStorage.Weapons[library.pointers.MiscellaneousTabCategoryGrenadeType.value].Model,
-			nil,
-			25,
-			35,
-			workspace.CurrentCamera.CFrame.lookVector * (5 * library.pointers.MiscellaneousTabCategoryGrenadeVelocity.value),
-			nil,
-			nil
+		game.ReplicatedStorage.Weapons[library.pointers.MiscellaneousTabCategoryGrenadeType.value].Model,
+		nil,
+		25,
+		35,
+		workspace.CurrentCamera.CFrame.lookVector * (5 * library.pointers.MiscellaneousTabCategoryGrenadeVelocity.value),
+		nil,
+		nil
 		)
 	end
 end)
@@ -1539,20 +1587,20 @@ local MiscellaneousTabCategoryChatSpam = MiscellaneousTab:AddCategory("Chat Spam
 
 MiscellaneousTabCategoryChatSpam:AddToggle("Enabled", false, "MiscellaneousTabCategoryChatSpamEnabled", function(val)
 	ChatSpam = val
-	
+
 	while ChatSpam do
 		game:GetService("ReplicatedStorage").Events.PlayerChatted:FireServer(
-			library.pointers.MiscellaneousTabCategoryChatSpamMessage.value,
-			false,
-			"Innocent",
-			false,
-			true
+		library.pointers.MiscellaneousTabCategoryChatSpamMessage.value,
+		false,
+		"Innocent",
+		false,
+		true
 		)
 		wait(3)
 	end
 end)
 
-MiscellaneousTabCategoryChatSpam:AddTextBox("Message", "Meowtap only cheat that can meow!", "MiscellaneousTabCategoryChatSpamMessage")
+MiscellaneousTabCategoryChatSpam:AddTextBox("Message", "Meowtap is the best!", "MiscellaneousTabCategoryChatSpamMessage")
 
 local MiscellaneousTabCategoryKeybinds = MiscellaneousTab:AddCategory("Keybinds", 2)
 
@@ -1602,7 +1650,7 @@ local SettingsTabCategoryMain = SettingsTab:AddCategory("Main", 1)
 SettingsTabCategoryMain:AddKeybind("Toggle Keybind", Enum.KeyCode.RightShift, "SettingsTabCategoryUIToggleKeybind")
 
 SettingsTabCategoryMain:AddButton("Server Rejoin", function()
-    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
+	game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
 end)
 
 SettingsTabCategoryMain:AddButton("Copy Discord Invite", function()
@@ -1614,7 +1662,7 @@ SettingsTabCategoryMain:AddButton("Copy Roblox Game Invite", function()
 end)
 
 SettingsTabCategoryMain:AddButton("Fix Vote Bug", function()
-    LocalPlayer.PlayerGui.GUI.MapVote.Visible = false
+	LocalPlayer.PlayerGui.GUI.MapVote.Visible = false
 	LocalPlayer.PlayerGui.GUI.Scoreboard.Visible = false
 end)
 
@@ -1646,14 +1694,14 @@ local SettingsTabCategoryPlayers = SettingsTab:AddCategory("Players", 1)
 SettingsTabCategoryPlayers:AddTextBox("Username", "", "SettingsTabCategoryPlayersUsername", function(val, focus)
 	if game.Players:FindFirstChild(val) then
 		local plr = game.Players:FindFirstChild(val)
-		
+
 		while game.Players:FindFirstChild(library.pointers.SettingsTabCategoryPlayersUsername.value) do
 			wait(0.1)
 			library.pointers.SettingsTabCategoryPlayersAge:Set("Age: "..plr.AccountAge.." days")
 			library.pointers.SettingsTabCategoryPlayersAlive:Set("Alive: "..(IsAlive(plr) and "yes" or "no"))
 			library.pointers.SettingsTabCategoryPlayersTeam:Set("Team: "..GetTeam(plr).Name)
 		end
-		
+
 		library.pointers.SettingsTabCategoryPlayersAge:Set("Age: ")
 		library.pointers.SettingsTabCategoryPlayersAlive:Set("Alive: ")
 		library.pointers.SettingsTabCategoryPlayersTeam:Set("Team: ")
@@ -1673,18 +1721,18 @@ SettingsTabCategoryConfigs:AddTextBox("Name", "", "SettingsTabCategoryConfigsNam
 SettingsTabCategoryConfigs:AddDropdown("Config", {"-"}, "-", "SettingsTabCategoryConfigsConfig")
 
 SettingsTabCategoryConfigs:AddButton("Create", function()
-    writefile("Meowtap/configs/"..library.pointers.SettingsTabCategoryConfigsName.value..".cfg", library:SaveConfiguration())
+	writefile("Meowtap/configs/"..library.pointers.SettingsTabCategoryConfigsName.value..".cfg", library:SaveConfiguration())
 end)
 
 SettingsTabCategoryConfigs:AddButton("Save", function()
-    writefile("Meowtap/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg", library:SaveConfiguration())
+	writefile("Meowtap/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg", library:SaveConfiguration())
 end)
 
 SettingsTabCategoryConfigs:AddButton("Load", function()
 	local a,b = pcall(function()
 		cfg = loadstring("return "..readfile("Meowtap/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg"))()
 	end)
-	
+
 	if a == false then
 		warn("Config Loading Error", a, b)
 	elseif a == true then
@@ -1700,7 +1748,7 @@ SettingsTabCategoryConfigs:AddButton("Refresh", function()
 			table.insert(cfgs, v:sub(17, -5))
 		end
 	end
-	
+
 	library.pointers.SettingsTabCategoryConfigsConfig.options = cfgs
 end)
 
@@ -1711,6 +1759,8 @@ SettingsTabCategoryConfigs:AddButton("Set as default", function()
 		writefile("Meowtap/autoload.txt", "")
 	end
 end)
+
+
 
 -- Other
 game.Players.LocalPlayer.Additionals.TotalDamage.Changed:Connect(function(val)
@@ -1741,75 +1791,75 @@ workspace.CurrentCamera.ChildAdded:Connect(function(new)
 		cbClient.secondarystored = 999999 -- secondary stored
 	end
 	spawn(function()
-	if new.Name == "Arms" and new:IsA("Model") and library.pointers.VisualsTabCategoryViewmodelColorsEnabled.value == true then
-		for i,v in pairs(new:GetChildren()) do
-			if v:IsA("Model") and v:FindFirstChild("Right Arm") or v:FindFirstChild("Left Arm") then
-				local RightArm = v:FindFirstChild("Right Arm") or nil
-				local LeftArm = v:FindFirstChild("Left Arm") or nil
-					
-				local RightGlove = (RightArm and (RightArm:FindFirstChild("Glove") or RightArm:FindFirstChild("RGlove"))) or nil
-				local LeftGlove = (LeftArm and (LeftArm:FindFirstChild("Glove") or LeftArm:FindFirstChild("LGlove"))) or nil
-					
-				local RightSleeve = RightArm and RightArm:FindFirstChild("Sleeve") or nil
-				local LeftSleeve = LeftArm and LeftArm:FindFirstChild("Sleeve") or nil
-				
-				if library.pointers.VisualsTabCategoryViewmodelColorsArms.value == true then
-					if RightArm ~= nil then
-						RightArm.Mesh.TextureId = ""
-						RightArm.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsArmsTransparency.value
-						RightArm.Color = library.pointers.VisualsTabCategoryViewmodelColorsArmsColor.value
-					end
-					if LeftArm ~= nil then
-						LeftArm.Mesh.TextureId = ""
-						LeftArm.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsArmsTransparency.value
-						LeftArm.Color = library.pointers.VisualsTabCategoryViewmodelColorsArmsColor.value
-					end
-				end
-				
-				if library.pointers.VisualsTabCategoryViewmodelColorsGloves.value == true then
-					if RightGlove ~= nil then
-						RightGlove.Mesh.TextureId = ""
-						RightGlove.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsGlovesTransparency.value
-						RightGlove.Color = library.pointers.VisualsTabCategoryViewmodelColorsGlovesColor.value
-					end
-					if LeftGlove ~= nil then
-						LeftGlove.Mesh.TextureId = ""
-						LeftGlove.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsGlovesTransparency.value
-						LeftGlove.Color = library.pointers.VisualsTabCategoryViewmodelColorsGlovesColor.value
-					end
-				end
+		if new.Name == "Arms" and new:IsA("Model") and library.pointers.VisualsTabCategoryViewmodelColorsEnabled.value == true then
+			for i,v in pairs(new:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Right Arm") or v:FindFirstChild("Left Arm") then
+					local RightArm = v:FindFirstChild("Right Arm") or nil
+					local LeftArm = v:FindFirstChild("Left Arm") or nil
 
-				if library.pointers.VisualsTabCategoryViewmodelColorsSleeves.value == true then
-					if RightSleeve ~= nil then
-						RightSleeve.Mesh.TextureId = ""
-						RightSleeve.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsSleevesTransparency.value
-						RightSleeve.Color = library.pointers.VisualsTabCategoryViewmodelColorsSleevesColor.value
-						RightSleeve.Material = "ForceField"
-					end
-					if LeftSleeve ~= nil then
-						LeftSleeve.Mesh.TextureId = ""
-						LeftSleeve.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsSleevesTransparency.value
-						LeftSleeve.Color = library.pointers.VisualsTabCategoryViewmodelColorsSleevesColor.value
-						LeftSleeve.Material = "ForceField"
-					end
-				end
-			elseif library.pointers.VisualsTabCategoryViewmodelColorsWeapons.value == true and v:IsA("BasePart") and not table.find({"Right Arm", "Left Arm", "Flash"}, v.Name) and v.Transparency ~= 1 then
-				if v:IsA("MeshPart") then v.TextureID = "" end
-				if v:FindFirstChildOfClass("SpecialMesh") then v:FindFirstChildOfClass("SpecialMesh").TextureId = "" end
+					local RightGlove = (RightArm and (RightArm:FindFirstChild("Glove") or RightArm:FindFirstChild("RGlove"))) or nil
+					local LeftGlove = (LeftArm and (LeftArm:FindFirstChild("Glove") or LeftArm:FindFirstChild("LGlove"))) or nil
 
-				v.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsWeaponsTransparency.value
-				v.Color = library.pointers.VisualsTabCategoryViewmodelColorsWeaponsColor.value
-				v.Material = library.pointers.VisualsTabCategoryViewmodelColorsWeaponsMaterial.value
+					local RightSleeve = RightArm and RightArm:FindFirstChild("Sleeve") or nil
+					local LeftSleeve = LeftArm and LeftArm:FindFirstChild("Sleeve") or nil
+
+					if library.pointers.VisualsTabCategoryViewmodelColorsArms.value == true then
+						if RightArm ~= nil then
+							RightArm.Mesh.TextureId = ""
+							RightArm.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsArmsTransparency.value
+							RightArm.Color = library.pointers.VisualsTabCategoryViewmodelColorsArmsColor.value
+						end
+						if LeftArm ~= nil then
+							LeftArm.Mesh.TextureId = ""
+							LeftArm.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsArmsTransparency.value
+							LeftArm.Color = library.pointers.VisualsTabCategoryViewmodelColorsArmsColor.value
+						end
+					end
+
+					if library.pointers.VisualsTabCategoryViewmodelColorsGloves.value == true then
+						if RightGlove ~= nil then
+							RightGlove.Mesh.TextureId = ""
+							RightGlove.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsGlovesTransparency.value
+							RightGlove.Color = library.pointers.VisualsTabCategoryViewmodelColorsGlovesColor.value
+						end
+						if LeftGlove ~= nil then
+							LeftGlove.Mesh.TextureId = ""
+							LeftGlove.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsGlovesTransparency.value
+							LeftGlove.Color = library.pointers.VisualsTabCategoryViewmodelColorsGlovesColor.value
+						end
+					end
+
+					if library.pointers.VisualsTabCategoryViewmodelColorsSleeves.value == true then
+						if RightSleeve ~= nil then
+							RightSleeve.Mesh.TextureId = ""
+							RightSleeve.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsSleevesTransparency.value
+							RightSleeve.Color = library.pointers.VisualsTabCategoryViewmodelColorsSleevesColor.value
+							RightSleeve.Material = "ForceField"
+						end
+						if LeftSleeve ~= nil then
+							LeftSleeve.Mesh.TextureId = ""
+							LeftSleeve.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsSleevesTransparency.value
+							LeftSleeve.Color = library.pointers.VisualsTabCategoryViewmodelColorsSleevesColor.value
+							LeftSleeve.Material = "ForceField"
+						end
+					end
+				elseif library.pointers.VisualsTabCategoryViewmodelColorsWeapons.value == true and v:IsA("BasePart") and not table.find({"Right Arm", "Left Arm", "Flash"}, v.Name) and v.Transparency ~= 1 then
+					if v:IsA("MeshPart") then v.TextureID = "" end
+					if v:FindFirstChildOfClass("SpecialMesh") then v:FindFirstChildOfClass("SpecialMesh").TextureId = "" end
+
+					v.Transparency = library.pointers.VisualsTabCategoryViewmodelColorsWeaponsTransparency.value
+					v.Color = library.pointers.VisualsTabCategoryViewmodelColorsWeaponsColor.value
+					v.Material = library.pointers.VisualsTabCategoryViewmodelColorsWeaponsMaterial.value
+				end
 			end
 		end
-	end
 	end)
 end)
 
 workspace.ChildAdded:Connect(function(new)
 	if new.Name == "C4" and new:IsA("Model") and library.pointers.VisualsTabCategoryBombESPEnabled.value == true then
 		local BombTimer = 40
-		
+
 		local BillboardGui = Instance.new("BillboardGui")
 		BillboardGui.Parent = new
 		BillboardGui.Adornee = new
@@ -1817,7 +1867,7 @@ workspace.ChildAdded:Connect(function(new)
 		BillboardGui.AlwaysOnTop = true
 		BillboardGui.LightInfluence = 1
 		BillboardGui.Size = UDim2.new(0, 50, 0, 50)
-		
+
 		if table.find(library.pointers.VisualsTabCategoryBombESPInfo.value, "Text") then
 			local TextLabelText = Instance.new("TextLabel")
 			TextLabelText.Parent = BillboardGui
@@ -1830,7 +1880,7 @@ workspace.ChildAdded:Connect(function(new)
 			TextLabelText.TextYAlignment = Enum.TextYAlignment.Top
 			TextLabelText.Text = tostring(new.Name)
 		end
-		
+
 		if table.find(library.pointers.VisualsTabCategoryBombESPInfo.value, "Icon") then
 			local ImageLabel = Instance.new("ImageLabel")
 			ImageLabel.Parent = BillboardGui
@@ -1841,7 +1891,7 @@ workspace.ChildAdded:Connect(function(new)
 			ImageLabel.Image = tostring(require(game.ReplicatedStorage.GetIcon).getWeaponOfKiller(new.Name))
 			ImageLabel.ScaleType = Enum.ScaleType.Fit
 		end
-		
+
 		if table.find(library.pointers.VisualsTabCategoryBombESPInfo.value, "Timer") then
 			local TextLabelBombTimer = Instance.new("TextLabel")
 			TextLabelBombTimer.Parent = BillboardGui
@@ -1853,7 +1903,7 @@ workspace.ChildAdded:Connect(function(new)
 			TextLabelBombTimer.TextSize = 14
 			TextLabelBombTimer.TextYAlignment = Enum.TextYAlignment.Bottom
 			TextLabelBombTimer.Text = tostring(BombTimer.. "/40")
-			
+
 			spawn(function()
 				repeat
 					wait(1)
@@ -1877,7 +1927,7 @@ end)
 workspace.Debris.ChildAdded:Connect(function(child)
 	if child:IsA("BasePart") and game.ReplicatedStorage.Weapons:FindFirstChild(child.Name) and library.pointers.VisualsTabCategoryDroppedESPEnabled.value == true then
 		wait()
-		
+
 		local BillboardGui = Instance.new("BillboardGui")
 		BillboardGui.Parent = child
 		BillboardGui.Adornee = child
@@ -1885,7 +1935,7 @@ workspace.Debris.ChildAdded:Connect(function(child)
 		BillboardGui.AlwaysOnTop = true
 		BillboardGui.LightInfluence = 1
 		BillboardGui.Size = UDim2.new(0, 50, 0, 50)
-		
+
 		if table.find(library.pointers.VisualsTabCategoryDroppedESPInfo.value, "Icon") then
 			local ImageLabel = Instance.new("ImageLabel")
 			ImageLabel.Parent = BillboardGui
@@ -1896,7 +1946,7 @@ workspace.Debris.ChildAdded:Connect(function(child)
 			ImageLabel.Image = tostring(require(game.ReplicatedStorage.GetIcon).getWeaponOfKiller(child.Name))
 			ImageLabel.ScaleType = Enum.ScaleType.Fit
 		end
-		
+
 		if table.find(library.pointers.VisualsTabCategoryDroppedESPInfo.value, "Text") then
 			local TextLabelText = Instance.new("TextLabel")
 			TextLabelText.Parent = BillboardGui
@@ -1909,7 +1959,7 @@ workspace.Debris.ChildAdded:Connect(function(child)
 			TextLabelText.TextYAlignment = Enum.TextYAlignment.Top
 			TextLabelText.Text = tostring(child.Name)
 		end
-		
+
 		if table.find(library.pointers.VisualsTabCategoryDroppedESPInfo.value, "Ammo") and game.ReplicatedStorage.Weapons[child.Name].StoredAmmo.Value ~= 0 then
 			local TextLabelAmmo = Instance.new("TextLabel")
 			TextLabelAmmo.Parent = BillboardGui
@@ -1924,9 +1974,9 @@ workspace.Debris.ChildAdded:Connect(function(child)
 		end
 	elseif child:IsA("MeshPart") and not game.ReplicatedStorage.Weapons:FindFirstChild(child.Name) and child:WaitForChild("Handle2") and library.pointers.VisualsTabCategoryGrenadeESPEnabled.value == true then
 		wait()
-		
+
 		gtype = nil
-		
+
 		if child.Handle2.TextureID == game.ReplicatedStorage.Weapons["HE Grenade"].Model.Handle2.TextureID then
 			gtype = "HE Grenade"
 		elseif child.Handle2.TextureID == game.ReplicatedStorage.Weapons["Smoke Grenade"].Model.Handle2.TextureID then
@@ -1940,7 +1990,7 @@ workspace.Debris.ChildAdded:Connect(function(child)
 		elseif child.Handle2.TextureID == game.ReplicatedStorage.Weapons["Decoy Grenade"].Model.Handle2.TextureID then
 			gtype = "Decoy Grenade"
 		end
-		
+
 		if gtype ~= nil then
 			local BillboardGui = Instance.new("BillboardGui")
 			BillboardGui.Parent = child
@@ -1949,7 +1999,7 @@ workspace.Debris.ChildAdded:Connect(function(child)
 			BillboardGui.AlwaysOnTop = true
 			BillboardGui.LightInfluence = 1
 			BillboardGui.Size = UDim2.new(0, 50, 0, 50)
-			
+
 			if table.find(library.pointers.VisualsTabCategoryGrenadeESPInfo.value, "Icon") then
 				local ImageLabel = Instance.new("ImageLabel")
 				ImageLabel.Parent = BillboardGui
@@ -1960,7 +2010,7 @@ workspace.Debris.ChildAdded:Connect(function(child)
 				ImageLabel.Image = tostring(require(game.ReplicatedStorage.GetIcon).getWeaponOfKiller(gtype))
 				ImageLabel.ScaleType = Enum.ScaleType.Fit
 			end
-			
+
 			if table.find(library.pointers.VisualsTabCategoryGrenadeESPInfo.value, "Text") then
 				local TextLabelText = Instance.new("TextLabel")
 				TextLabelText.Parent = BillboardGui
@@ -1986,7 +2036,7 @@ end)
 game.ReplicatedStorage.Events.SendMsg.OnClientEvent:Connect(function(message)
 	if library.pointers.MiscellaneousTabCategoryMainAntiVoteKick.value == true then
 		local msg = string.split(message, " ")
-		
+
 		if game.Players:FindFirstChild(msg[1]) and msg[7] == "1" and msg[12] == game.Players.LocalPlayer.Name then
 			game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
 		end
@@ -2043,10 +2093,10 @@ local createNewMessage = getsenv(game.Players.LocalPlayer.PlayerGui.GUI.Main.Cha
 if setreadonly then setreadonly(mt, false) else make_writeable(mt, true) end
 
 oldNamecall = hookfunc(mt.__namecall, newcclosure(function(self, ...)
-    local method = getnamecallmethod()
+	local method = getnamecallmethod()
 	local callingscript = getcallingscript()
-    local args = {...}
-	
+	local args = {...}
+
 	if not checkcaller() then
 		if method == "Kick" then
 			return
@@ -2060,9 +2110,9 @@ oldNamecall = hookfunc(mt.__namecall, newcclosure(function(self, ...)
 			elseif self.Name == "ControlTurn" and library.pointers.AimbotTabCategoryAntiAimbotEnabled.value == true and library.pointers.AimbotTabCategoryAntiAimbotPitch.value ~= "Default" then
 				local angle = (
 					library.pointers.AimbotTabCategoryAntiAimbotPitch.value == "Up" and 1 or
-					library.pointers.AimbotTabCategoryAntiAimbotPitch.value == "Down" and -1 or
-					library.pointers.AimbotTabCategoryAntiAimbotPitch.value == "Boneless" and -5 or
-					library.pointers.AimbotTabCategoryAntiAimbotPitch.value == "Random" and (math.random(1,2) == 1 and 1 or -1)
+						library.pointers.AimbotTabCategoryAntiAimbotPitch.value == "Down" and -1 or
+						library.pointers.AimbotTabCategoryAntiAimbotPitch.value == "Boneless" and -5 or
+						library.pointers.AimbotTabCategoryAntiAimbotPitch.value == "Random" and (math.random(1,2) == 1 and 1 or -1)
 				)
 				if angle then
 					args[1] = angle
@@ -2089,7 +2139,7 @@ oldNamecall = hookfunc(mt.__namecall, newcclosure(function(self, ...)
 						BulletTracers:Destroy()
 					end)
 				end
-				
+
 				if library.pointers.VisualsTabCategoryOthersBulletImpacts.value == true then
 					spawn(function()
 						local BulletImpacts = Instance.new("Part")
@@ -2105,7 +2155,7 @@ oldNamecall = hookfunc(mt.__namecall, newcclosure(function(self, ...)
 						BulletImpacts:Destroy()
 					end)
 				end
-				
+
 				if args[1].Parent == workspace.MeowtapFolder then
 					if args[1].PlayerName.Value.Character and args[1].PlayerName.Value.Character.Head ~= nil then
 						args[1] = args[1].PlayerName.Value.Character.Head
@@ -2124,13 +2174,13 @@ oldNamecall = hookfunc(mt.__namecall, newcclosure(function(self, ...)
 				for i,v in pairs(EquipTeams) do
 					LocalPlayer.SkinFolder[v.."Folder"][Weapon]:ClearAllChildren()
 					LocalPlayer.SkinFolder[v.."Folder"][Weapon].Value = Skin
-					
+
 					if args[1][4][2] == "StatTrak" then
 						local Marker = Instance.new("StringValue")
 						Marker.Name = "StatTrak"
 						Marker.Value = args[1][4][3]
 						Marker.Parent = LocalPlayer.SkinFolder[v.."Folder"][Weapon]
-						
+
 						local Count = Instance.new("IntValue")
 						Count.Name = "Count"
 						Count.Value = args[1][4][4]
@@ -2150,12 +2200,12 @@ oldNamecall = hookfunc(mt.__namecall, newcclosure(function(self, ...)
 			if library.pointers.MiscellaneousTabCategoryGunModsWallbang.value == true then
 				table.insert(args[2], workspace.Map)
 			end
-			
+
 			if IsAlive(LocalPlayer) and SilentRagebot.target ~= nil then
 				args[1] = Ray.new(LocalPlayer.Character.Head.Position, (SilentRagebot.target.Position - LocalPlayer.Character.Head.Position).unit * (game.ReplicatedStorage.Weapons[game.Players.LocalPlayer.Character.EquippedTool.Value].Range.Value * 0.1))
 			elseif IsAlive(LocalPlayer) and SilentLegitbot.target ~= nil then
 				local hitchance = math.random(0, 100)
-				
+
 				if hitchance <= library.pointers.AimbotTabCategoryLegitbotHitchance.value then
 					args[1] = Ray.new(LocalPlayer.Character.Head.Position, (SilentLegitbot.target.Position - LocalPlayer.Character.Head.Position).unit * (game.ReplicatedStorage.Weapons[game.Players.LocalPlayer.Character.EquippedTool.Value].Range.Value * 0.1))
 				end
@@ -2164,7 +2214,7 @@ oldNamecall = hookfunc(mt.__namecall, newcclosure(function(self, ...)
 			args[1] = args[1] * CFrame.new(Vector3.new(math.rad(library.pointers.VisualsTabCategoryViewmodelOffsetX.value-180),math.rad(library.pointers.VisualsTabCategoryViewmodelOffsetY.value-180),math.rad(library.pointers.VisualsTabCategoryViewmodelOffsetZ.value-180))) * CFrame.Angles(0, 0, math.rad(library.pointers.VisualsTabCategoryViewmodelOffsetRoll.value-180))
 		end
 	end
-	
+
 	return oldNamecall(self, unpack(args))
 end))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if game.Players.LocalPlayer.UserId == 1858923608 then game.Players.LocalPlayer:Kick("🤡") end -- anti skid security system :sunglasses:
 
@@ -2179,8 +2229,8 @@ oldNewIndex = hookfunc(getrawmetatable(game.Players.LocalPlayer.PlayerGui.Client
 			val = true
 		end
 	end
-	
-    return oldNewIndex(self, idx, val)
+
+	return oldNewIndex(self, idx, val)
 end))
 
 oldIndex = hookfunc(getrawmetatable(game.Players.LocalPlayer.PlayerGui.Client).__index, newcclosure(function(self, idx)
@@ -2206,14 +2256,14 @@ oldIndex = hookfunc(getrawmetatable(game.Players.LocalPlayer.PlayerGui.Client)._
 		end
 	end
 
-    return oldIndex(self, idx)
+	return oldIndex(self, idx)
 end))
 
 getsenv(game.Players.LocalPlayer.PlayerGui.GUI.Main.Chats.DisplayChat).createNewMessage = function(plr, msg, teamcolor, msgcolor, offset, line)
 	if library.pointers.MiscellaneousTabCategoryMainNNSDontTalk.value == true and plr ~= game.Players.LocalPlayer.Name then
 		msg = "I am retarded."
 	end
-	
+
 	return createNewMessage(plr, msg, teamcolor, msgcolor, offset, line)
 end
 
@@ -2225,12 +2275,12 @@ game.Players.PlayerAdded:Connect(PlayerAdded)
 for i,v in pairs({"CT", "T"}) do
 	LocalPlayer.PlayerGui.GUI.Scoreboard[v].ChildAdded:Connect(function(child)
 		wait(0.1)
-		
+
 		if child.Parent == LocalPlayer.PlayerGui.GUI.Scoreboard[v] and child:FindFirstChild("player") and child.player.Text ~= "PLAYER" and UserInputService:IsKeyDown(Enum.KeyCode.Tab) then
 			if game.Players:FindFirstChild(child.player.Text) and game.Players[child.player.Text].OsPlatform:sub(1,1) == "|" then
 				plr = game.Players[child.player.Text]
 				child.player.Text = plr.OsPlatform:sub(2, 41).." "..plr.Name
-				
+
 				updater = plr:GetPropertyChangedSignal("OsPlatform"):Connect(function()
 					if child and child.Parent and child:FindFirstChild("player") or UserInputService:IsKeyDown(Enum.KeyCode.Tab) and plr.OsPlatform:sub(1,1) == "|" then
 						child.player.Text = plr.OsPlatform:sub(2, 41).." "..plr.Name
@@ -2243,11 +2293,11 @@ for i,v in pairs({"CT", "T"}) do
 	end)
 end
 
-if readfile("Meowtap/autoload.txt") ~= "" and isfile("Meowtap/configs/"..readfile("Meowtap/autoload.txt")) then
+if readfile("hexagon/autoload.txt") ~= "" and isfile("Meowtap/configs/"..readfile("Meowtap/autoload.txt")) then
 	local a,b = pcall(function()
 		cfg = loadstring("return "..readfile("Meowtap/configs/"..readfile("Meowtap/autoload.txt")))()
 	end)
-	
+
 	if a == false then
 		warn("Config Loading Error", a, b)
 	elseif a == true then
