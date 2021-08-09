@@ -486,7 +486,7 @@ local function AddCustomSkin(tbl)
 
 		newfolder = Instance.new("Folder")
 		newfolder.Name = tbl.skinname
-		newfolder.Parent = (isGlove == true and game.ReplicatedStorage.Gloves) or (game.ReplicatedStorage.Skins[tbl.weaponname])
+		newfolder.Parent = (isGlove == true and game.ReplicatedStorage.Gloves[tbl.weaponname]) or (game.ReplicatedStorage.Skins[tbl.weaponname])
 
 		if tbl.skinimage ~= nil then
 			newvalue1 = Instance.new("StringValue")
